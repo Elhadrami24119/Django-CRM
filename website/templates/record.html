@@ -2,28 +2,74 @@
 
 {% block content %}
 
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-7">
 
-<div class="card">
-  <div class="card-header">
-        <strong>{{ customer_record.first_name }} {{ customer_record.last_name }}</strong> 
-  </div>
-  <div class="card-body">
-    <p class="card-text">
-        <strong>Email: </strong> {{ customer_record.email }} <br>
-        <strong>Phone: </strong> {{ customer_record.phone }} <br>
-        <strong>Address: </strong>{{ customer_record.address }} <br>
-        <strong>City: </strong>{{ customer_record.city }} <br>
-        <strong>State: </strong>{{ customer_record.state }} <br>
-        <strong>Zipcode: </strong>{{ customer_record.zipcode }} <br>
-        <strong>Created At: </strong>{{ customer_record.created_at }} <br>
-        <strong>ID: </strong>{{ customer_record.id }} <br>
-    </p>
+      <div class="card shadow border-0">
+        <div class="card-header bg-dark text-white text-center">
+          <h4 class="mb-0">
+            {{ customer_record.first_name }} {{ customer_record.last_name }}
+          </h4>
+        </div>
+
+        <div class="card-body">
+
+          <p class="card-text mb-2">
+            <strong>Email:</strong> {{ customer_record.email }}
+          </p>
+
+          <p class="card-text mb-2">
+            <strong>Phone:</strong> {{ customer_record.phone }}
+          </p>
+
+          <p class="card-text mb-2">
+            <strong>Address:</strong> {{ customer_record.address }}
+          </p>
+
+          <p class="card-text mb-2">
+            <strong>City:</strong> {{ customer_record.city }}
+          </p>
+
+          <p class="card-text mb-2">
+            <strong>State:</strong> {{ customer_record.state }}
+          </p>
+
+          <p class="card-text mb-2">
+            <strong>Zipcode:</strong> {{ customer_record.zipcode }}
+          </p>
+
+          <p class="card-text mb-2">
+            <strong>Created At:</strong> {{ customer_record.created_at }}
+          </p>
+
+          <p class="card-text mb-0">
+            <strong>ID:</strong> {{ customer_record.id }}
+          </p>
+
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between mt-4">
+
+        <a href="{% url 'home' %}" class="btn btn-secondary">
+          Back
+        </a>
+
+        <div>
+          <a href="{% url 'update_record' customer_record.id %}" class="btn btn-warning">
+            Update
+          </a>
+
+          <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">
+            Delete
+          </a>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 </div>
-<br><br>
-<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
 
-<a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
-
- 
 {% endblock %}
